@@ -1,8 +1,10 @@
 # rock-paper-scissor
 
-#[LIVE HERE](#)
+#[LIVE HERE](https://nitishprasadverma.github.io/rock-paper-scissor/)
 This project is a simple implementation of the classic game Rock Paper Scissors. It allows users to play against the computer and keeps track of the score.
 
+
+# [DEMO HERE](https://nitishprasadverma.github.io/rock-paper-scissor/)
 # Feautres
  * Clickable Buttons: Users can choose their move by clicking on buttons for Rock, Paper, or Scissors.
  * Random Computer Choice: The computer randomly selects its move.
@@ -21,6 +23,6 @@ This Rock Paper Scissors game is created by Nitish Prasad Verma.
  
  connect with me on [twitter](https://twitter.com/NitishV64066840),[Linkedin](https://www.linkedin.com/in/nitish-prasad-verma-094972253/),[Github](https://github.com/Nitishprasadverma)
 
- 
+
 
 
