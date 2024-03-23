@@ -1,12 +1,12 @@
+
+// function to generate random choice  
 function getComputerChoice() {
     const choices = ["Rock", "Sicssor", "Paper"];
     let random = Math.floor(Math.random() * choices.length);
     const compChoice = choices[random];
     return compChoice;
 }
-
-// getComputerChoice();
-
+// Playround function return a message according to the given coditions
 function playRound(playerSelection, compChoice) {
     let player = playerSelection.toLowerCase();
     let computer = compChoice.toLowerCase();
@@ -54,75 +54,40 @@ function playRound(playerSelection, compChoice) {
     return message;
 }
 
-
-// function playGame() {
-//     let round = parseInt(prompt("Enter no. of round"));
-//     let result = "";
-//     let playerResult = 0;
-//     let comresult = 0;
-//     for (i = 1; i <= round; i++) {
-//         // let playerSelection = prompt("Choose one of 'rock','paper'and 'sicssor' :");
-//         let computerSelection = getComputerChoice();
-
-//         result = playRound(playerSelection, computerSelection);
-
-//         // console.log(result);
-//         // prompt(result.message);
-//         alert(result.message)
-//         playerscore = result.playerScore;
-//         computerScore = result.computerScore;
-//         if (computerScore == 1) {
-//             comresult++;
-//         }
-//         else if (playerscore == 1) {
-//             playerResult++;
-//         }
-
-
-//     }
-
-//     if (comresult > playerResult) {
-//         alert("you lose the game dude!");
-//     }
-//     else if (comresult == playerResult) {
-//         alert( "shit u both score same")
-//     }
-//     else {
-//         alert("you won the game boss!");
-//     }
-// }
-// playGame();
+// Create a div container
 
 const container = document.querySelector("#container");
 
-
+// button for the user to select their choice;
 const btn1 = document.createElement("button");
 btn1.id = "btnId1";
 const btn2 = document.createElement("button");
 btn2.id = "btnId2";
 const btn3 = document.createElement("button");
 btn3.id = "btnId3";
-
+// all button added to the div container
 container.appendChild(btn1)
 container.appendChild(btn2)
 container.appendChild(btn3)
-
+// Assigning the text to the buttons
 btn1.textContent = "Rock";
 btn2.textContent = "Paper";
 btn3.textContent = "Sicssor";
-
+// iterate the all buttons
 let buttons = document.querySelectorAll("button");
 buttons.forEach((button) => {
+    // added event listner to the button which is single click to select the player choice
     button.addEventListener("click", () => {
 
         const playerSelection = button.textContent;
 
-        const computerSelection = getComputerChoice();
-        const result = playRound(playerSelection, computerSelection);
+        const computerSelection = getComputerChoice();//computer random choice generator function is called;
+
+        const result = playRound(playerSelection, computerSelection); //playround fucntion is called to get the adject result of the one round 
 
         resultString.textContent = result;
 
-        scoreAdd();
+        scoreAdd(); //score added function is called to add the score of the player and computer and determind the winner at the end..
     });
 });
 
@@ -134,7 +99,7 @@ container.appendChild(resultString);
 const runningScore = document.createElement("div");
 runningScore.id = "score";
 container.appendChild(runningScore);
-
+// initializing the player and computerscore with 0
 let playerScore = 0;
 let computerScore = 0;
 
@@ -157,7 +122,7 @@ resultScore.id = "resultScore";
 
 console.log(resultString);
 
-
+// score added function  which keeps increment the score of computer and score untill one of them reac to the 5time won or lose ,
 function scoreAdd() {
     if (resultString.textContent.includes("won")) {
         playerScore++;
@@ -165,7 +130,7 @@ function scoreAdd() {
     else if (resultString.textContent.includes("lose")) {
         computerScore++;
     }
-
+// condition to check wether computer won the match or player
     if (computerScore >= 5) {
         resultShow.innerHTML = "Computer Won!";
         resultScore.innerHTML = "Your Score: " + playerScore + "Computer Score " + computerScore;
@@ -185,13 +150,15 @@ function scoreAdd() {
         container.appendChild(resultScore);
         container.appendChild(resetButton);
     }
-
+// diplaying the player and computer score at the end.
     playerCount.innerHTML = "Player Score: " + playerScore;
     computerCount.innerHTML = "Computer Score: " + computerScore;
 
 
 }
 
+
+// reset function to remove reinitialize the all attributes .
 function reset() {
     playerScore = 0;
     computerScore = 0;
@@ -202,7 +169,7 @@ function reset() {
     computerCount.innerHTML = "Computer Score :0";
     container.removeChild(resetButton)
 }
-
+// reset button to replay the game.
 resetButton.addEventListener("click", () => {
     reset();
 });
